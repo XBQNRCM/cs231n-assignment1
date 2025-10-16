@@ -24,7 +24,7 @@ def affine_forward(x, w, b):
     """
     out = None
     ###########################################################################
-    # DONE: Implement the affine forward pass. Store the result in out. You   #
+    # TODO: Implement the affine forward pass. Store the result in out. You   #
     # will need to reshape the input into rows.                               #
     ###########################################################################
     out = x.reshape(x.shape[0], -1) @ w + b
@@ -54,9 +54,9 @@ def affine_backward(dout, cache):
     x, w, b = cache
     dx, dw, db = None, None, None
     ###########################################################################
-    # DONE: Implement the affine backward pass.                               #
+    # TODO: Implement the affine backward pass.                               #
     ###########################################################################
-    dx = (dout @ w.T).reshape(x.shape)
+    dx = (dout @ w.T).reshape(x.shape) # dx的shape要改回与x相同，极其重要
     dw = x.reshape(x.shape[0], -1).T @ dout
     db = np.sum(dout, axis=0)
     ###########################################################################
@@ -78,7 +78,7 @@ def relu_forward(x):
     """
     out = None
     ###########################################################################
-    # DONE: Implement the ReLU forward pass.                                  #
+    # TODO: Implement the ReLU forward pass.                                  #
     ###########################################################################
     out = np.maximum(0, x)
     ###########################################################################
@@ -101,7 +101,7 @@ def relu_backward(dout, cache):
     """
     dx, x = None, cache
     ###########################################################################
-    # DONE: Implement the ReLU backward pass.                                 #
+    # TODO: Implement the ReLU backward pass.                                 #
     ###########################################################################
     dx = dout * (x > 0)
     ###########################################################################
@@ -295,7 +295,7 @@ def layernorm_forward(x, gamma, beta, ln_param):
     # TODO: Implement the training-time forward pass for layer norm.          #
     # Normalize the incoming data, and scale and  shift the normalized data   #
     #  using gamma and beta.                                                  #
-    # HINT: this can be done by slightly modifying your training-time         #
+    # HINT: this can be TODO by slightly modifying your training-time         #
     # implementation of  batch normalization, and inserting a line or two of  #
     # well-placed code. In particular, can you think of any matrix            #
     # transformations you could perform, that would enable you to copy over   #
@@ -312,7 +312,7 @@ def layernorm_backward(dout, cache):
     """
     Backward pass for layer normalization.
 
-    For this implementation, you can heavily rely on the work you've done already
+    For this implementation, you can heavily rely on the work you've TODO already
     for batch normalization.
 
     Inputs:
@@ -328,7 +328,7 @@ def layernorm_backward(dout, cache):
     ###########################################################################
     # TODO: Implement the backward pass for layer norm.                       #
     #                                                                         #
-    # HINT: this can be done by slightly modifying your training-time         #
+    # HINT: this can be TODO by slightly modifying your training-time         #
     # implementation of batch normalization. The hints to the forward pass    #
     # still apply!                                                            #
     ###########################################################################
@@ -714,7 +714,7 @@ def softmax_loss(x, y):
     loss, dx = None, None
 
     ###########################################################################
-    # DONE: Copy over your solution from A1.
+    # TODO: Copy over your solution from A1.
     ###########################################################################
 
     # 防止计算出的exp指数过大，溢出；softmax分子分母所有输入统一加一个常数，softmax值不变
